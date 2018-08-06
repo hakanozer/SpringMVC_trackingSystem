@@ -16,6 +16,4 @@ This project is written with Spring MVC, for a free application that keeps a com
 
 <a href="https://github.com/hakanozer/SpringMVC_trackingSystem/blob/master/Screenshot/4.png" target="_blank">
 <img src="https://github.com/hakanozer/SpringMVC_trackingSystem/blob/master/Screenshot/4.png" width="200" style="max-width:100%;"></a>
-  
-  
 </p>  
