@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 04 Ağu 2018, 09:59:02
--- Sunucu sürümü: 10.1.28-MariaDB
--- PHP Sürümü: 7.1.11
+-- Host: 127.0.0.1
+-- Generation Time: Aug 08, 2018 at 05:48 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `trackingsystem`
+-- Database: `trackingsystem`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,24 +37,32 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
--- Dökümü yapılmış tablolar için indeksler
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`aid`, `aname`, `asurname`, `amail`, `apassword`) VALUES
+(1, 'ali', 'bilmem', 'ali@ali.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+(2, 'fatih', 'sihoglu', 'f@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Tablo için indeksler `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`aid`);
 
 --
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

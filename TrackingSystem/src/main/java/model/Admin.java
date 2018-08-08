@@ -9,21 +9,32 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name = "admin")
 @NamedQuery(name="Admin.findAll", query="SELECT a FROM Admin a")
 public class Admin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "aid")
 	private int aid;
-
+	
+	@Column(name = "amail")
 	private String amail;
-
+	
+	@Column(name = "aname")
 	private String aname;
-
+	
+	@Column(name = "apassword")
 	private String apassword;
-
+	
+	@Column(name = "asurname")
 	private String asurname;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public Admin() {
 	}
