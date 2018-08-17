@@ -57,11 +57,21 @@
   <div class="register-logo">
     <a href='<s:url value="/"></s:url>'><b>Tracking</b>System</a>
   </div>
+  
+  
+  <c:if test="${not empty ayniMail}">
+    	<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Kayıt hatası !</h4>${ ayniMail }
+              </div>
+    </c:if>
+  
+
 
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action='<s:url value="/userRegister"></s:url>' method="post">
+	<form action='<s:url value="/userRegister"></s:url>' method="post">
       <div class="form-group has-feedback">
         <input name="aname" type="text" class="form-control" placeholder="Name" required="required">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>

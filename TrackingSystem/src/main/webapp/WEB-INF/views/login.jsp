@@ -42,8 +42,20 @@
     <a href='<s:url value="/"></s:url>'><b>Tracking</b>System</a>
   </div>
   <!-- /.login-logo -->
+  
+   <c:if test="${not empty hata}">
+    	<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Giriş hatası !</h4>${ hata }
+              </div>
+    </c:if>
+  
+  
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    
+   
+    
 
     <form action='<s:url value="/userLogin"></s:url>' method="post">
       <div class="form-group has-feedback">

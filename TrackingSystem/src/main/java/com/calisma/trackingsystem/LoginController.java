@@ -59,8 +59,8 @@ public class LoginController {
 				}
 				return "redirect:/dashboard";
 			}else {
-				model.addAttribute("error", "Email veya sifre hatali");
-				return "redirect:/";
+				model.addAttribute("hata", "Kullanıcı Adınız veya Şifreniz Hatalı");
+				return "login";
 			}
 		} catch (Exception e) {
 			System.err.println("User Login Error : " + e);

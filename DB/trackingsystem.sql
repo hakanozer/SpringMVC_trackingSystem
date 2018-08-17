@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 05:48 AM
+-- Generation Time: Aug 17, 2018 at 08:16 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`aid`, `aname`, `asurname`, `amail`, `apassword`) VALUES
 (1, 'ali', 'bilmem', 'ali@ali.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'fatih', 'sihoglu', 'f@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+(4, 'kim', 'bilir', 'kim@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
@@ -52,7 +52,8 @@ INSERT INTO `admin` (`aid`, `aname`, `asurname`, `amail`, `apassword`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`aid`);
+  ADD PRIMARY KEY (`aid`),
+  ADD UNIQUE KEY `amail` (`amail`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -62,7 +63,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
