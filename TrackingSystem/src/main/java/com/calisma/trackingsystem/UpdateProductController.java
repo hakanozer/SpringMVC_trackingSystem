@@ -3,11 +3,14 @@ package com.calisma.trackingsystem;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,12 +19,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import model.Product;
 import utils.DB;
 import utils.HibernateUtil;
+import utils.UtilClass;
 
 @Controller
 public class UpdateProductController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
 @RequestMapping(value="/updateProduct/{pid}",method=RequestMethod.GET)
-public String updateProduct(Model model,@PathVariable String pid)
+public String updateProduct(Model model,@PathVariable String pid,HttpServletRequest req)
 {
 	Product pr = new Product();
 	String selectQuery = "select * from products where pid = ?";
@@ -49,11 +53,11 @@ public String updateProduct(Model model,@PathVariable String pid)
 		System.out.println("veri getirme hatasý: "+e);
 	}
 	
-	return "updateproduct";
+	return UtilClass.control("updatproduct", req);
 }
 	@ResponseBody
 	@RequestMapping(value="/updateFinish",method=RequestMethod.POST)
-	public String updateFinish(Product pro)
+	public String updateFinish(Product pro,HttpServletRequest req)
 	{
 		System.out.println("update ajax çalýþtý");
 		String updateQuery = "update products set pname=? , pnumber=?, pcategory=? , pdescription=? , pcompany=?, pprice=?, pdatetime=now() where pid=?";
@@ -72,7 +76,7 @@ public String updateProduct(Model model,@PathVariable String pid)
 			System.out.println("update hatasý :"+e);
 		}
 		
-		return "productmanagement";
+		return UtilClass.control("productmanagement", req);
 	}
 
 }

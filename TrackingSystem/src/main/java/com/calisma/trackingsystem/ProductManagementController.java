@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,12 +26,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import model.Product;
 import utils.DB;
 import utils.HibernateUtil;
+import utils.UtilClass;
 
 @Controller
 public class ProductManagementController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
 	@RequestMapping(value = "/productmanagement", method = RequestMethod.GET)
-	public String productmanagement(Model model) {
+	public String productmanagement(Model model,HttpServletRequest req) {
 		
 		List<Product> lst = new ArrayList<Product>();
 		lst=dataResult();
@@ -42,12 +44,12 @@ public class ProductManagementController {
 		System.out.println("uzunluk: "+size);
 		
 		
+		return UtilClass.control("productmanagement", req);
 		
-		return "productmanagement";
 	}
 	@ResponseBody
 	@RequestMapping(value="/productInsert", method=RequestMethod.POST)
-	public String productInsert(Product pro,Model model)
+	public String productInsert(Product pro,Model model,HttpServletRequest req)
 	{
 		
 		String insertQuery = "insert into products values(null,?,?,?,?,?,?,now())";
@@ -102,10 +104,11 @@ public class ProductManagementController {
 			System.out.println("insert error: "+e);
 		}
 		model.addAttribute("lst", dataResult());
-		return "redirect:/productmanagement";
+		
+		return UtilClass.control("redirect:/productmanagement", req);
 	}
 	@RequestMapping(value="/deleteProduct/{pid}",method=RequestMethod.GET)
-	public String deleteProduct(@PathVariable String pid)
+	public String deleteProduct(@PathVariable String pid,HttpServletRequest req)
 	{
 		String deleteQuery = "delete from products where products.pid=?";
 		try {
@@ -116,7 +119,7 @@ public class ProductManagementController {
 			System.err.println("silme hatasý: "+e);
 		}
 		
-		return "redirect:/productmanagement";
+		return UtilClass.control("redirect:/productmanagement", req);
 	}
 	
 	public List<Product> dataResult()
