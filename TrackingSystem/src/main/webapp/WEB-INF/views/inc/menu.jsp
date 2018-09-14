@@ -55,10 +55,10 @@
           
         </li>
         <li>
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
+          <a href='<s:url value="/companymanagement"></s:url>'>
+            <i class="fa fa-th"></i> <span>Company Management</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+          
             </span>
           </a>
         </li>
