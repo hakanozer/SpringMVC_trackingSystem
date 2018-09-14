@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 13 Eyl 2018, 17:13:26
--- Sunucu sürümü: 10.1.31-MariaDB
--- PHP Sürümü: 7.2.4
+-- Anamakine: localhost
+-- Üretim Zamanı: 14 Eyl 2018, 19:18:50
+-- Sunucu sürümü: 10.1.34-MariaDB
+-- PHP Sürümü: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,6 +77,31 @@ INSERT INTO `products` (`pid`, `pname`, `pnumber`, `pcategory`, `pdescription`, 
 (45, 'k11111111111111', 23423, 1, 'jkhbkj', 1, 212, '2018-09-13 17:50:02'),
 (46, 'gfh', 100, 1, 'hfghf', 1, 46, '2018-09-13 17:57:57');
 
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `sales`
+--
+
+CREATE TABLE `sales` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `sproductid` int(11) NOT NULL,
+  `snumberofsale` int(11) NOT NULL,
+  `sdescription` text COLLATE utf8_turkish_ci NOT NULL,
+  `sdatetime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `sales`
+--
+
+INSERT INTO `sales` (`sid`, `sname`, `sproductid`, `snumberofsale`, `sdescription`, `sdatetime`) VALUES
+(23, '0001', 37, 45, 'jfhg', '2018-09-14 20:12:39'),
+(25, 'deneemee', 37, 41341, 'okasdjad', '2018-09-14 19:51:18'),
+(26, '', 37, 4324, 'dassdf', '2018-09-14 19:57:13'),
+(27, 'ghj', 37, 5678, 'ghjk', '2018-09-14 20:12:30');
+
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -95,6 +120,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Tablo için indeksler `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -109,6 +140,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `products`
   MODIFY `pid` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

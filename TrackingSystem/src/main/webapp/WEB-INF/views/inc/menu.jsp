@@ -55,6 +55,14 @@
           
         </li>
         <li>
+          <a href='<s:url value="/salesmanagement"></s:url>'>
+            <i class="fa fa-laptop"></i>
+            <span>Sales Management</span>
+                    </a>
+          
+        </li>
+        
+        <li>
           <a href='<s:url value="/companymanagement"></s:url>'>
             <i class="fa fa-th"></i> <span>Company Management</span>
             <span class="pull-right-container">
