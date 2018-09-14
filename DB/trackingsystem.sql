@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost
--- Üretim Zamanı: 14 Eyl 2018, 19:18:50
--- Sunucu sürümü: 10.1.34-MariaDB
--- PHP Sürümü: 7.2.7
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 14 Eyl 2018, 19:53:03
+-- Sunucu sürümü: 10.1.31-MariaDB
+-- PHP Sürümü: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,6 +44,29 @@ INSERT INTO `admin` (`aid`, `aname`, `asurname`, `amail`, `apassword`) VALUES
 (1, 'ali', 'bilmem', 'ali@ali.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 (4, 'kim', 'bilir', 'kim@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 (5, 'atalay', 'akıllı', 'atalay@a.com', '202cb962ac59075b964b07152d234b70');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `company`
+--
+
+CREATE TABLE `company` (
+  `compid` int(9) NOT NULL,
+  `compname` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
+  `compmail` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `compno` int(30) NOT NULL,
+  `compadress` text COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `company`
+--
+
+INSERT INTO `company` (`compid`, `compname`, `compmail`, `compno`, `compadress`) VALUES
+(1, 'a', 'a', 121, 'a'),
+(2, 'gfdfg', 'mjghjm', 122, 'her yerde'),
+(3, 'borusan', 'borusan@borusan', 23232, 'adasd');
 
 -- --------------------------------------------------------
 
@@ -114,6 +137,12 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `amail` (`amail`);
 
 --
+-- Tablo için indeksler `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`compid`);
+
+--
 -- Tablo için indeksler `products`
 --
 ALTER TABLE `products`
@@ -134,6 +163,12 @@ ALTER TABLE `sales`
 --
 ALTER TABLE `admin`
   MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `company`
+--
+ALTER TABLE `company`
+  MODIFY `compid` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `products`

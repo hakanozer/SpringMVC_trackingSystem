@@ -61,7 +61,12 @@
                     </a>
           
         </li>
-        
+        <li>
+          <a href='<s:url value="/companymanagement"></s:url>'>
+            <i class="fa fa-th"></i> <span>Company Management</span>
+            
+          </a>
+        </li>
         <li>
           <a href='<s:url value="/companymanagement"></s:url>'>
             <i class="fa fa-th"></i> <span>Company Management</span>
